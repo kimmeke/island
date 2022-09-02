@@ -1,0 +1,11 @@
+Model Information:
+* title:	Mew 1.0
+* source:	https://sketchfab.com/3d-models/mew-10-835f24b632f84f9abe7a5c55f9d3d69c
+* author:	DreamNoms (https://sketchfab.com/DreamNoms)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Mew 1.0" (https://sketchfab.com/3d-models/mew-10-835f24b632f84f9abe7a5c55f9d3d69c) by DreamNoms (https://sketchfab.com/DreamNoms) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
