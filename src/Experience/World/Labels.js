@@ -122,9 +122,6 @@ export default class Labels {
             this.experience.buildPart('Desert')
         } })
         /* TODO: 
-            - Destroy Island scene V
-            - Build new Desert scene
-            - When Desert scene is loaded, remove overlay
             - Change overlay to a nice webgl transition
         */
        // for now remove overlay so you can see the original world again

@@ -129,8 +129,8 @@ export default class Experience {
                 this.scene.remove(child);
             }
         }
-        // new val should be 'desert' for now
-        // this.buildWorld('desert')
+        
+        delete this.world.island;
     }
 
     buildPart(val) {
