@@ -63,13 +63,13 @@ export default class Labels {
             }})
             gsap.to(this.character.model.rotation, {x: 0, y: 3, z: 0, duration: 0.8})
             gsap.to(this.character.model.rotation, {x: -0.5, y: 3, z: -0.5, duration: 0.6, delay: 1})
-            gsap.to(this.character.model.position, {x: 40, y: 20, z: 0, duration: 4, delay: 1.2, onStart: () => {
+            gsap.to(this.character.model.position, {x: 40, y: 20, z: 0, duration: 3, delay: 1, onStart: () => {
                 this.character.playAnimation('fly')
             }, onComplete: () => {
                 this.character.playAnimation('idle')
             }})
 
-            gsap.to(this.character.model.rotation, {x: 0, y: 0, z: 0, duration: 1, delay: 4.5, onComplete: () => {
+            gsap.to(this.character.model.rotation, {x: 0, y: 0, z: 0, duration: 0.8, delay: 3.5, onComplete: () => {
                 gsap.to('.label', {scale: 1})
             }})
         })
@@ -117,14 +117,16 @@ export default class Labels {
         }})
         gsap.to('.point', {autoAlpha: 0})
         // Animate overlay
-        gsap.to('.loading-overlay', { duration: 1, autoAlpha: 1 })
+        gsap.to('.loading-overlay', { duration: 1, autoAlpha: 1, onComplete: () => {
+            this.experience.destroyPart('Island')
+            this.experience.buildPart('Desert')
+        } })
         /* TODO: 
-            - Destroy World fountain scene
+            - Destroy Island scene V
             - Build new Desert scene
             - When Desert scene is loaded, remove overlay
             - Change overlay to a nice webgl transition
         */
-       this.experience.destroyScene('world')
        // for now remove overlay so you can see the original world again
         gsap.to('.loading-overlay', { duration: 1, autoAlpha: 0, delay: 2 })
     }

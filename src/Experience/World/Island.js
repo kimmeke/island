@@ -17,6 +17,7 @@ export default class Island {
 
     setModel() {
         this.model = this.resource.scene
+        this.model.name = 'Island'
         this.model.position.set(0, -10, 0)
         this.model.rotation.y = -10
         this.scene.add(this.model)

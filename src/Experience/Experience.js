@@ -57,7 +57,7 @@ export default class Experience {
             this.world = new World()
         } else if (this.currentScene === 'desert') {
             // TODO: make Desert world
-            // this.desert = new Desert()
+            console.log('build new desert world');
         }
     }
 
@@ -78,6 +78,8 @@ export default class Experience {
 
     loaded() {
         this.world.mew.flyToCamera()
+        // this.destroyPart('Island')
+        // this.buildPart('Desert') 
     }
 
     destroy() {
@@ -106,34 +108,35 @@ export default class Experience {
         }
     }
     
-    destroyScene(val, newVal) {
-        console.log('destroyScene: ', val);
-        console.log('world: ', this[val].scene);
-        console.log("clean up before", this.renderer);
-
-        this.sizes.off('resize')
-        this.time.off('tick')
-        // Traverse the whole scene
-        this[val].scene.traverse((child) => {
-            if(child instanceof THREE.Mesh) {
-                this[val].scene.remove(child)
-                child.geometry.dispose()
-
-                for( const key in child.material ) {
-                    const value = child.material[key]
-
-                    if(value && typeof value.dispose === 'function') {
-                        value.dispose()
+    destroyPart(val) {
+        for (const child of this.scene.children) {
+            if(child.name == val){
+                child.traverse((el) => {
+                    if(el instanceof THREE.Mesh) {
+                        child.remove(el)
+                        el.geometry.dispose()
+        
+                        for( const key in el.material ) {
+                            const value = el.material[key]
+        
+                            if(value && typeof value.dispose === 'function') {
+                                value.dispose()
+                            }
+                        }
                     }
-                }
+        
+                })
+                this.scene.remove(child);
             }
-
-        })
-
-        this.camera.controls.dispose()
-        this.renderer.instance.dispose()
+        }
         // new val should be 'desert' for now
-        this.buildScene()
-        this.buildWorld(newVal)
+        // this.buildWorld('desert')
+    }
+
+    buildPart(val) {
+        console.log('buildpart: ', val);
+        if(val === 'Desert') {
+            this.world.buildDesert()
+        }
     }
 }

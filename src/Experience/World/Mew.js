@@ -25,6 +25,7 @@ export default class Mew {
 
     setModel() {
         this.model = this.resource.scene
+        this.model.name = 'Mew'
         this.model.position.set(60, 40, 0)
         this.model.rotation.y = 0.1
         this.model.scale.set(17,17, 17)

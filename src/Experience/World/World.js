@@ -3,6 +3,7 @@ import * as THREE from "three"
 import Environment from "./Environment";
 import Mew from "./Mew";
 import Island from "./Island";
+import Desert from "./Desert";
 import Labels from "./Labels";
 
 export default class World {
@@ -33,5 +34,9 @@ export default class World {
         // if(this.overlay) {
         //     this.overlay.update()
         // }
+    }
+
+    buildDesert() {
+        this.desert = new Desert()
     }
 }

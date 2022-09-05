@@ -46,5 +46,12 @@ export default class Camera {
 
     update() {
         this.controls.update()
+        // console.log('camera position: ', this.instance.position);
+    }
+
+    enableControls() {
+        // this.controls.target = new THREE.Vector3(0,0,0)
+        this.controls.enablePan = true
+        this.controls.enableZoom = true
     }
 }
