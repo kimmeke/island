@@ -5,12 +5,14 @@ import Mew from "./Mew";
 import Island from "./Island";
 import Desert from "./Desert";
 import Labels from "./Labels";
+import Tunnel from '../../Transition/tunnel';
 
 export default class World {
     constructor() {
         this.experience = new Experience()
         this.scene = this.experience.scene
         this.resources = this.experience.resources
+        this.tunnel = new Tunnel()
 
         // Wait for resources
         this.resources.on('ready', () => {
@@ -37,6 +39,7 @@ export default class World {
     }
 
     buildDesert() {
+        this.tunnel.trigger()
         this.desert = new Desert()
     }
 }

@@ -1,5 +1,6 @@
 import Experience from "../Experience";
 import * as THREE from "three"
+import Tunnel from '../../Transition/tunnel';
 
 export default class Desert {
     constructor() {
@@ -10,6 +11,7 @@ export default class Desert {
         this.debug = this.experience.debug
         this.camera = this.experience.camera
         this.mew = this.experience.world.mew
+        this.tunnel = new Tunnel()
         
         // Setup
         this.resource = this.resources.items.desertModel
@@ -36,6 +38,10 @@ export default class Desert {
         })
 
         this.scene.add(this.model)
+
+        setTimeout(() => {
+            this.tunnel.destroy()
+        }, 3000);
     }
 
     update() {
